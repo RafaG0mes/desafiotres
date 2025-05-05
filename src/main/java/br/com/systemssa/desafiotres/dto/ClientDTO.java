@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ClientDTO {
 
     private Long id;
-    @NotBlank(message = "Campo requerifo")
+    @NotBlank(message = "Campo requerido")
     private String name;
 
     @CPF(message = "CPF inválido")
