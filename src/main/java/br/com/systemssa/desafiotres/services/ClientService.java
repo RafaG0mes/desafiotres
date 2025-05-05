@@ -4,6 +4,7 @@ import br.com.systemssa.desafiotres.dto.ClientDTO;
 import br.com.systemssa.desafiotres.entities.Client;
 import br.com.systemssa.desafiotres.repositories.ClientRepository;
 import br.com.systemssa.desafiotres.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,5 +31,35 @@ public class ClientService {
         Client client = result.orElseThrow(() -> new ResourceNotFoundException("Cadastro não localizado"));
         ClientDTO dto = new ClientDTO(client);
         return dto;
+    }
+
+    @Transactional
+    public ClientDTO insert(ClientDTO dto){
+        Client entity = new Client();
+        copyDtoToEntity(dto, entity);
+        entity = repository.save(entity);
+        return new ClientDTO(entity);
+
+    }
+
+    @Transactional
+    public ClientDTO update(Long id, ClientDTO dto){
+        try {
+            Client entity = repository.getReferenceById(id);
+            copyDtoToEntity(dto, entity);
+            entity = repository.save(entity);
+            return new ClientDTO(entity);
+        }
+        catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
+    }
+
+    private void copyDtoToEntity(ClientDTO dto, Client entity) {
+        entity.setName(dto.getName());
+        entity.setCpf(dto.getCpf());
+        entity.setIncome(dto.getIncome());
+        entity.setBirthDate(dto.getBirthDate());
+        entity.setChildren(dto.getChildren());
     }
 }
