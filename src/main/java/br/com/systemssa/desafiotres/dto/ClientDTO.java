@@ -21,6 +21,7 @@ public class ClientDTO {
     private Double income;
     @PastOrPresent(message = "A data não pode ser uma data futura")
     private LocalDate birthDate;
+
     private Integer children;
 
     public ClientDTO() {
