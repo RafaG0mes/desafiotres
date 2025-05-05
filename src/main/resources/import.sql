@@ -2,4 +2,9 @@ INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Algusto
 INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Jose Silva', 33543686089, 2100.0, '1995-07-20', 1);
 INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Maria Algusta', 18511951067, 3000.0, '1900-02-11', 3);
 INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Elgenia Soares', 18982830014, 3100.0, '1966-03-11', 2);
-INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Augusta SAnches', 22502164010, 2900.0, '1970-10-19', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Augusta Sanches', 22502164010, 2900.0, '1970-10-19', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Matheus Jose', 62865436004, 5000.0, '1979-06-15', 5);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Jose Junior', 17195394050, 2890.0, '1995-01-09', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Mariana Batista', 60681605057, 5050.0, '1900-04-17', 4);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Flavia Cristina', 85240633002, 4100.0, '1966-05-30', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Denise Bernardes', 02437908056, 2900.0, '1970-08-21', 2);
