@@ -3,6 +3,7 @@ package br.com.systemssa.desafiotres.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tb_client")
@@ -12,6 +13,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(unique = true)
     private String cpf;
     private Double income;
     private LocalDate birthDate;
@@ -75,5 +77,25 @@ public class Client {
 
     public void setChildren(Integer children) {
         this.children = children;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Client client = (Client) o;
+
+        if (!Objects.equals(name, client.name)) return false;
+        if (!Objects.equals(cpf, client.cpf)) return false;
+        return Objects.equals(birthDate, client.birthDate);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (cpf != null ? cpf.hashCode() : 0);
+        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
+        return result;
     }
 }
